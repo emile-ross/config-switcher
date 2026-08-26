@@ -20,3 +20,8 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
+Bool cmp(char *s_one, char *s_two)
+{
+	if (strcmp(s_one, s_two) == 0) return True;
+	else return False;
+}
