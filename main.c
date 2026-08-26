@@ -14,16 +14,24 @@ int main(int argc, char *argv[])
 	
 	for (; i < (argc - 1); i++)
 	{
-		if (cmp(argv[i], "--help"))
+		if (scmp(argv[i], "--help"))
 		{
+			printf("config-switcher [program] [file]\n");
 			return 0;
+		}
+		else if (scmp(argv[i], "--program"))
+		{
+		}
+		else
+		{
+			/* TODO mark as an ignored option */
 		}
 	}
 
 	return 0;
 }
 
-Bool cmp(char *s_one, char *s_two)
+Bool scmp(char *s_one, char *s_two)
 {
 	if (strcmp(s_one, s_two) == 0) return True;
 	else return False;
