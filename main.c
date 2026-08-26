@@ -1,5 +1,7 @@
 #include "header.h"
 
+#include <string.h>
+
 int main(int argc, char *argv[])
 {
 	if (!(argc > 2))
@@ -12,8 +14,9 @@ int main(int argc, char *argv[])
 	
 	for (; i < (argc - 1); i++)
 	{
-		if (strcmp(argv[]))
+		if (cmp(argv[i], "--help"))
 		{
+			return 0;
 		}
 	}
 
