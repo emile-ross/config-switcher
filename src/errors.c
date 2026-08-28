@@ -19,6 +19,9 @@ void err(err_type error_code)
 	case MALLOC_FAIL:
 		fprintf(stderr, "Failed to allocate memory (this is likely caused by a very high system memory usage)\n");
 		break;
+	case BUF_TRUNCATION:
+		fprintf(stderr, "The string has been truncated (internal failiure)\n");
+		break;
 	}
 	exit(1);
 }

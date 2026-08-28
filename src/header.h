@@ -18,7 +18,8 @@ typedef enum
 {
 	INVALID_ERR = 0,
 	ARG_MISSING = 1,
-	MALLOC_FAIL = 2
+	BUF_TRUNCATION = 21,
+	MALLOC_FAIL = 41
 } err_type;
 
 Bool cmp(char *arg, const char *s_one, const char *s_two);

@@ -10,7 +10,7 @@ char *bmalloc(char *fmt, ...)
 	va_copy(args_copy, args);
 
 	/* store the initial str len for allocating memory */
-	size_t str_len = (size_t)vsnprintf(NULL, 0, fmt, args_copy);
+	size_t str_len = 1 + (size_t)vsnprintf(NULL, 0, fmt, args_copy);
 	va_end(args_copy);
 
 	char *str = malloc(str_len);
@@ -20,6 +20,8 @@ char *bmalloc(char *fmt, ...)
 	/* store the return value of the string length in 'ret' */
 	int ret = vsnprintf(str, str_len, fmt, args);
 	va_end(args);
+	if ((unsigned)ret < str_len)
+		err(BUF_TRUNCATION);
 	
 	return str;
 }
