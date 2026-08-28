@@ -1,5 +1,7 @@
 #include "header.h"
 
+const Bool verbose = True;
+
 int main(int argc, char *argv[])
 {
 	uint8_t i = 1;	/* ignore first argument (arg 0) */
@@ -23,7 +25,8 @@ int main(int argc, char *argv[])
 			if (i++ > argc)
 				err(ARG_MISSING);
 			args.config_name = argv[i];
-			printf("%s\n", args.config_name);
+			if (verbose)
+				printf("%s\n", args.config_name);
 
 		}
 		else if (cmp(argv[i], "-p", "--program"))
@@ -31,13 +34,15 @@ int main(int argc, char *argv[])
 			if (i++ > argc)
 				err(ARG_MISSING);
 			args.program_name = argv[i];
-			printf("%s\n", args.program_name);
+			if (verbose)
+				printf("%s\n", args.program_name);
 		}
 		else
 		{
-			/* TODO mark as an ignored option */
+			fprintf(stderr, "Ignored arg: %s", argv[i]);
+			fprintf(stderr, "You can view valid arguments using the --help flag\n");
+			return 1;
 		}
 	}
-
 	return 0;
 }

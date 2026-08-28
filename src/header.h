@@ -19,6 +19,7 @@ typedef enum
 	INVALID_ERR = 0,
 	ARG_MISSING = 1,
 	BUF_TRUNCATION = 21,
+	INVALID_ARGS = 40,
 	MALLOC_FAIL = 41
 } err_type;
 
@@ -28,3 +29,11 @@ typedef enum
 
 /* errors.c */
 	void err(err_type error_code);
+
+char *get_config_name(char *program_name, char *second_config);
+char *bmalloc(char *fmt, ...);
+
+
+
+
+extern const char *path_to_config;
