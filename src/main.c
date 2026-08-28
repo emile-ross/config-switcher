@@ -10,7 +10,6 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 	
-	
 	for (; i < (argc - 1); i++)
 	{
 		if (scmp(argv[i], "--help"))
@@ -18,10 +17,12 @@ int main(int argc, char *argv[])
 			printf("config-switcher [program] [file]\n");
 			return 0;
 		}
-		else if (scmp(argv[i], "--program"))
+		else if (cmp(argv[i], "-c", "--config"))
 		{
+			if (i++ <= argc)
+				fprintf(stderr, "missing arguments\n");
 		}
-		else if (scmp(argv[i], "--program"))
+		else if (cmp(argv[i], "-p", "--program"))
 		{
 		}
 		else
