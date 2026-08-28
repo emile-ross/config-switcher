@@ -14,5 +14,11 @@ typedef struct
 	char *config_name;
 } command_args;
 
+typedef enum
+{
+	INVALID_ERR = 0,
+	ARG_MISSING = 1,
+} err_type;
+
 Bool cmp(char *arg, const char *s_one, const char *s_two);
 Bool scmp(char *arg, char *s);

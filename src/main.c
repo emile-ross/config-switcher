@@ -45,3 +45,13 @@ int main(int argc, char *argv[])
 
 	return 0;
 }
+
+void err(err_type error_code)
+{
+	switch (error_code)
+	{
+	case ARG_MISSING:
+		fprintf(stderr, "missing arguments\n");
+	}
+	exit(1);
+}
