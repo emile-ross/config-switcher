@@ -21,18 +21,15 @@ int main(int argc, char *argv[])
 		else if (cmp(argv[i], "-c", "--config"))
 		{
 			if (i++ > argc)
-			{
-				fprintf(stderr, "missing arguments\n");
-				return 1;
-			}
+				err(ARG_MISSING);
+			args.config_name = argv[i];
+			printf("%s\n", args.config_name);
+
 		}
 		else if (cmp(argv[i], "-p", "--program"))
 		{
 			if (i++ > argc)
-			{
-				fprintf(stderr, "missing arguments\n");
-				return 1;
-			}
+				err(ARG_MISSING);
 			args.program_name = argv[i];
 			printf("%s\n", args.program_name);
 		}

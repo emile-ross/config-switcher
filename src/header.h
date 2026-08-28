@@ -22,3 +22,5 @@ typedef enum
 
 Bool cmp(char *arg, const char *s_one, const char *s_two);
 Bool scmp(char *arg, char *s);
+/* errors.c */
+	void err(err_type error_code);
