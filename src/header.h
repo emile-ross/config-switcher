@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -17,7 +18,8 @@ typedef struct
 typedef enum
 {
 	INVALID_ERR = 0,
-	ARG_MISSING = 1
+	ARG_MISSING = 1,
+	MALLOC_FAIL = 2
 } err_type;
 
 Bool cmp(char *arg, const char *s_one, const char *s_two);

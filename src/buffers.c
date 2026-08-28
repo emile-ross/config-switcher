@@ -15,6 +15,8 @@ char *bmalloc(char *fmt, ...)
 	va_end(args_copy);
 
 	char *str = malloc(str_len);
+	if (str == NULL)
+		err(MALLOC_FAIL);
 
 	ret = vsnprintf(str, str_len, fmt, args);
 	va_end(args);
