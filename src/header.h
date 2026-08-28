@@ -17,7 +17,7 @@ typedef struct
 typedef enum
 {
 	INVALID_ERR = 0,
-	ARG_MISSING = 1,
+	ARG_MISSING = 1
 } err_type;
 
 Bool cmp(char *arg, const char *s_one, const char *s_two);

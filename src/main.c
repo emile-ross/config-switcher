@@ -3,7 +3,6 @@
 int main(int argc, char *argv[])
 {
 	uint8_t i = 1;	/* ignore first argument (arg 0) */
-
 	command_args args = { NULL, NULL };
 
 	if (!(argc > 2))
@@ -50,8 +49,13 @@ void err(err_type error_code)
 {
 	switch (error_code)
 	{
+	case INVALID_ERR:
+		fprintf(stderr, "Invalid error type\n");
+		break;
+
 	case ARG_MISSING:
-		fprintf(stderr, "missing arguments\n");
+		fprintf(stderr, "The program expects more arguments after your flags\n");
+		break;
 	}
 	exit(1);
 }
