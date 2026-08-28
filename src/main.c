@@ -23,6 +23,9 @@ int main(int argc, char *argv[])
 		else if (scmp(argv[i], "--program"))
 		{
 		}
+		else if (scmp(argv[i], "--program"))
+		{
+		}
 		else
 		{
 			/* TODO mark as an ignored option */
@@ -30,10 +33,4 @@ int main(int argc, char *argv[])
 	}
 
 	return 0;
-}
-
-Bool scmp(char *s_one, char *s_two)
-{
-	if (strcmp(s_one, s_two) == 0) return True;
-	else return False;
 }
