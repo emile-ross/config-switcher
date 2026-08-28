@@ -20,10 +20,18 @@ int main(int argc, char *argv[])
 		else if (cmp(argv[i], "-c", "--config"))
 		{
 			if (i++ <= argc)
+			{
 				fprintf(stderr, "missing arguments\n");
+				return 1;
+			}
 		}
 		else if (cmp(argv[i], "-p", "--program"))
 		{
+			if (i++ <= argc)
+			{
+				fprintf(stderr, "missing arguments\n");
+				return 1;
+			}
 		}
 		else
 		{
