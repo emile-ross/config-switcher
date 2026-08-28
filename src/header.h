@@ -8,4 +8,5 @@ typedef enum
 	True = 1
 } Bool;
 
-Bool scmp(char *s_one, char *s_two);
+Bool cmp(char *arg, const char *s_one, const char *s_two);
+Bool scmp(char *arg, char *s);

@@ -1,6 +1,6 @@
 CC = gcc
 
-SRC := main
+SRC := main compare
 PKG_NAME = config-switch
 OUT = -o $(PKG_NAME)
 

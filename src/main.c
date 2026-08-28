@@ -1,7 +1,5 @@
 #include "header.h"
 
-#include <string.h>
-
 int main(int argc, char *argv[])
 {
 	uint8_t i = 1;	/* ignore first argument (arg 0) */
