@@ -22,7 +22,9 @@ typedef enum
 	MALLOC_FAIL = 41
 } err_type;
 
-Bool cmp(char *arg, const char *s_one, const char *s_two);
-Bool scmp(char *arg, char *s);
+/* compare.c */
+	Bool cmp(char *arg, const char *s_one, const char *s_two);
+	Bool scmp(char *arg, char *s);
+
 /* errors.c */
 	void err(err_type error_code);
