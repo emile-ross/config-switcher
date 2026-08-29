@@ -32,7 +32,7 @@ typedef enum
 /* errors.c */
 	void err(err_type error_code);
 
-char *get_config_name(char *program_name, char *second_config);
+char *get_config_name(char *program_name);
 char *bmalloc(char *fmt, ...);
 
 extern const char *path_to_config;
