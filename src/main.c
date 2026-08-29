@@ -65,6 +65,7 @@ void arg_parser(command_args *args)
 	Bool style = False;
 	char *src_fp = NULL;
 	char *path_template = "%s/%s/%s/%s";
+
 	if (args->config_name != NULL)
 		src_fp = bmalloc(path_template, home, path_to_config, args->program_name, args->config_name);
 	else if (args->style_name != NULL)
@@ -75,11 +76,11 @@ void arg_parser(command_args *args)
 	else
 		err(INVALID_ARGS);
 
+	char *dst_filename = NULL;
 	if (style)
 		dst_filename = bmalloc("style.css");
 	else
 		dst_filename = bmalloc(get_config_name(args->program_name));
 
-	char *second_config = NULL;
-	char *config_name = bmalloc(get_config_name(args->program_name, second_config));
+	char *dst_fp = bmalloc(path_template, home, path_to_config, args->program_name, dst_filename);
 }
