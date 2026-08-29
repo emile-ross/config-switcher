@@ -57,12 +57,20 @@ int main(int argc, char *argv[])
 
 void arg_parser(command_args *args)
 {
+	if (args->program_name == NULL)
+		err(INVALID_ARGS);
+
 	const char *home = getenv("HOME");
-	if (args->program_name == NULL || args->config_name == NULL)
+
+	char *src_fp = NULL;
+	if (args->config_name != NULL)
+		src_fp = bmalloc(path_template, home, path_to_config, args->program_name, args->config_name);
+	else if (args->style_name != NULL)
+		src_fp = bmalloc(path_template, home, path_to_config, args->program_name, args->style_name);
+	else
 		err(INVALID_ARGS);
 
 	char *path_template = "%s/%s/%s/%s";
-	char *src_fp = bmalloc(path_template, home, path_to_config, args->program_name, args->config_name);
 
 	char *second_config = NULL;
 	char *config_name = bmalloc(get_config_name(args->program_name, second_config));
