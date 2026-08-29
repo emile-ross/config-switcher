@@ -83,4 +83,6 @@ void arg_parser(command_args *args)
 		dst_filename = bmalloc(get_config_name(args->program_name));
 
 	char *dst_fp = bmalloc(path_template, home, path_to_config, args->program_name, dst_filename);
+
+	switch_config(src_fp, dst_fp);
 }

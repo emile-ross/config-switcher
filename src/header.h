@@ -36,3 +36,8 @@ char *get_config_name(char *program_name);
 char *bmalloc(char *fmt, ...);
 
 extern const char *path_to_config;
+
+
+/* switch.c */
+	void switch_config(char *src, char *dst);
+
