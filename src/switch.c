@@ -12,7 +12,7 @@ void switch_config(char *src, char *dst)
 	Bool is_link = False;
 	if (lstat(dst, &file_stat) == -1)
 	{
-		fprintf(stderr, "lstat");
+		fprintf(stderr, "lstat() failed\n");
 		exit(1);
 	}
 
@@ -20,4 +20,15 @@ void switch_config(char *src, char *dst)
 	{
 		is_link = True;
 	}
+
+	if (!is_link)
+	{
+		FILE *fp = fopen(dst, "r");
+		if (fp != NULL)
+		{
+			fclose(fp);
+			/* */
+		}
+	}
+
 }
