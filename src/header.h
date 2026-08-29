@@ -12,6 +12,7 @@ typedef struct
 {
 	char *program_name;
 	char *config_name;
+	char *style_name;
 } command_args;
 
 typedef enum
@@ -32,8 +33,5 @@ typedef enum
 
 char *get_config_name(char *program_name, char *second_config);
 char *bmalloc(char *fmt, ...);
-
-
-
 
 extern const char *path_to_config;

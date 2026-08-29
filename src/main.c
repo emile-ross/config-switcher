@@ -5,7 +5,7 @@ const Bool verbose = True;
 int main(int argc, char *argv[])
 {
 	uint8_t i = 1;	/* ignore first argument (arg 0) */
-	command_args args = { NULL, NULL };
+	command_args args = { NULL, NULL, NULL };
 
 	if (!(argc > 2))
 	{
@@ -19,6 +19,14 @@ int main(int argc, char *argv[])
 		{
 			printf("config-switcher [program] [file]\n");
 			return 0;
+		}
+		else if (cmp(argv[i], "-s", "--style"))
+		{
+			if (i++ > argc)
+				err(ARG_MISSING);
+			args.style_name = argv[i];
+			if (verbose)
+				printf("%s\n", args.style_name);
 		}
 		else if (cmp(argv[i], "-c", "--config"))
 		{
