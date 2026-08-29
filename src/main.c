@@ -83,6 +83,11 @@ void arg_parser(command_args *args)
 		dst_filename = bmalloc(get_config_name(args->program_name));
 
 	char *dst_fp = bmalloc(path_template, home, path_to_config, args->program_name, dst_filename);
+	free(dst_filename);
+
+	/* currently only dst_fp & src_fp are allocated */
 
 	switch_config(src_fp, dst_fp);
+	free(src_fp);
+	free(dst_fp);
 }
