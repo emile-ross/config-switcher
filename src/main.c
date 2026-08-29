@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			fprintf(stderr, "Ignored arg: %s", argv[i]);
+			fprintf(stderr, "Ignored arg: %s\n", argv[i]);
 			fprintf(stderr, "You can view valid arguments using the --help flag\n");
 			return 1;
 		}
@@ -67,5 +67,4 @@ void arg_parser(command_args *args)
 	char *second_config = NULL;
 	char *config_name = bmalloc(get_config_name(args->program_name, second_config));
 	char *dst_fp = bmalloc(path_template, home, path_to_config, args->program_name, args->config_name);
-
 }
