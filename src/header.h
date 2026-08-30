@@ -32,12 +32,14 @@ typedef enum
 /* errors.c */
 	void err(err_type error_code);
 
-char *get_config_name(char *program_name);
+/* match_config.c */
+	char *get_config_name(char *program_name);
+
 char *bmalloc(char *fmt, ...);
 
 extern const char *path_to_config;
 
 
 /* switch.c */
-	void switch_config(char *src, char *dst);
+	void switch_config(const char *src, const char *dst);
 

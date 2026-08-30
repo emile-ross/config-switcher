@@ -6,7 +6,7 @@
 
 #include "header.h"
 
-void switch_config(char *src, char *dst)
+void switch_config(const char *src, const char *dst)
 {
 	struct stat file_stat;
 	Bool is_link = False;
