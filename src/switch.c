@@ -8,20 +8,7 @@
 
 void switch_config(const char *src, const char *dst)
 {
-	struct stat file_stat;
-	Bool is_link = False;
-	if (lstat(dst, &file_stat) == -1)
-	{
-		fprintf(stderr, "lstat() failed\n");
-		exit(1);
-	}
-
-	if (S_ISLNK(file_stat.st_mode))
-	{
-		is_link = True;
-	}
-
-	if (!is_link)
+	if (check_link(dst))
 	{
 		FILE *fp = fopen(dst, "r");
 		if (fp != NULL)
@@ -30,5 +17,21 @@ void switch_config(const char *src, const char *dst)
 			/* */
 		}
 	}
+}
 
+Bool check_link(char *path)
+{
+	struct stat file_stat;
+	
+	if (lstat(path, &file_stat) == -1)
+	{
+		fprintf(stderr, "lstat() failed\n");
+		exit(1);
+	}
+	
+	if (S_ISLNK(file_stat.st_mode))
+	{
+		return False;
+	}
+	return True;
 }
