@@ -6,6 +6,8 @@
 
 #include "header.h"
 
+Bool check_link(const char *path);
+
 void switch_config(const char *src, const char *dst)
 {
 	if (check_link(dst))
@@ -14,12 +16,16 @@ void switch_config(const char *src, const char *dst)
 		if (fp != NULL)
 		{
 			fclose(fp);
-			/* */
+			char *archive_path = bmalloc("archived-%s", dst);
+			char *cmd = bmalloc("mv %s %s", dst, archive_path);
+			free(archive_path);
+			system(cmd);
+			free(cmd);
 		}
 	}
 }
 
-Bool check_link(char *path)
+Bool check_link(const char *path)
 {
 	struct stat file_stat;
 	
