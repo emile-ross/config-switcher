@@ -28,6 +28,9 @@ void err(err_type error_code)
 	case BUF_TRUNCATION:
 		report = True;
 		MSG("The string has been truncated (internal failiure)\n");
+	default:
+		report = True;
+		MSG("Invalid error message");
 	}
 
 	if (report)
