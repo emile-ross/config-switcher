@@ -14,7 +14,8 @@
 /* match_config.c */
 	char *get_config_name(char *program_name);
 
-char *bmalloc(char *fmt, ...);
+/* memory.c */
+	char *bmalloc(const char *fmt, ...);
 
 /* switch.c */
 	int switch_config(const char *src, const char *dst);

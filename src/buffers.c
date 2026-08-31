@@ -1,7 +1,8 @@
 #include "header.h"
+
 #include <stdarg.h>
 
-char *bmalloc(char *fmt, ...)
+char *bmalloc(const char *fmt, ...)
 {
 	/* args copy is used for getting the string length *
 	 * args is for creating the final string */
@@ -14,6 +15,7 @@ char *bmalloc(char *fmt, ...)
 	va_end(args_copy);
 
 	char *str = malloc(str_len);
+	/* check for malloc() failure*/
 	if (str == NULL)
 		err(MALLOC_FAIL);
 
