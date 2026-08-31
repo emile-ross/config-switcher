@@ -12,6 +12,9 @@ void err(err_type error_code)
 	case INVALID_ERR:
 		MSG("Invalid error type\n");
 
+	case ARG_NONE:
+		MSG("The program requires at least 1 additional argument\n");
+
 	case ARG_MISSING:
 		MSG("The program expects more arguments after your flags\n");
 

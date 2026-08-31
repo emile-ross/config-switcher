@@ -8,10 +8,7 @@ int main(int argc, char *argv[])
 	command_args args = { NULL, NULL, NULL };
 
 	if (!(argc > 2))
-	{
-		fprintf(stderr, "Missing arguments in command\n");
-		return 1;
-	}
+		err(ARG_NONE);
 	
 	for (; i < (argc - 1); i++)
 	{

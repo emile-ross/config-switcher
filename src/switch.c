@@ -33,7 +33,7 @@ Bool is_link(const char *path)
 	
 	if (lstat(path, &file_stat) == -1)
 	{
-		exit(1);
+		err(LSTAT_FAIL);
 	}
 	
 	if (S_ISLNK(file_stat.st_mode) == 0)
