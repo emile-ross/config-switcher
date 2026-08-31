@@ -1,5 +1,11 @@
 #include "header.h"
 
+#define NEXT_ARG \
+	if (i++ > argc) \
+	{ \
+		err(ARG_MISSING); \
+	}
+
 const Bool verbose = True;
 
 int main(int argc, char *argv[])
