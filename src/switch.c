@@ -6,15 +6,16 @@
 
 #include "header.h"
 
-Bool check_link(const char *path);
+Bool is_link(const char *path);
 
 void switch_config(const char *src, const char *dst)
 {
-	if (check_link(dst))
+	if (is_link(dst))
 	{
 		FILE *fp = fopen(dst, "r");
 		if (fp != NULL)
 		{
+			/* archive the old config file to a new path */
 			fclose(fp);
 			char *archive_path = bmalloc("archived-%s", dst);
 			char *cmd = bmalloc("mv %s %s", dst, archive_path);
@@ -25,7 +26,7 @@ void switch_config(const char *src, const char *dst)
 	}
 }
 
-Bool check_link(const char *path)
+Bool is_link(const char *path)
 {
 	struct stat file_stat;
 	
@@ -34,7 +35,7 @@ Bool check_link(const char *path)
 		exit(1);
 	}
 	
-	if (S_ISLNK(file_stat.st_mode))
+	if (S_ISLNK(file_stat.st_mode) == 0)
 	{
 		return False;
 	}
