@@ -17,7 +17,7 @@
 char *bmalloc(char *fmt, ...);
 
 /* switch.c */
-	void switch_config(const char *src, const char *dst);
+	int switch_config(const char *src, const char *dst);
 
 extern const char *path_to_config;
 

@@ -8,7 +8,7 @@
 
 Bool is_link(const char *path);
 
-void switch_config(const char *src, const char *dst)
+int switch_config(const char *src, const char *dst)
 {
 	if (!(is_link(dst)))
 	{
@@ -28,9 +28,13 @@ void switch_config(const char *src, const char *dst)
 	const char *cmd_template = "ln -sf %s %s";
 	char *cmd = bmalloc(cmd_template, src, dst);
 
-	/* use cmd buffer */
+	/* execute linking command
+	 * links the configuration to the correct path */
+	int ret = system(cmd);
 
 	free(cmd);
+
+	return ret;
 }
 
 Bool is_link(const char *path)
