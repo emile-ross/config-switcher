@@ -52,5 +52,14 @@ int main(int argc, char *argv[])
 			return 1;
 		}
 	}
+	if (args.program_name == NULL)
+	{
+		fprintf(stderr, "Unspecified program name\nIt is used for the configuration directory\n");
+		return 4;
+	}
+	else
+	{
+		char *dst_link_name = get_config_name(args.program_name);
+	}
 	return 0;
 }
