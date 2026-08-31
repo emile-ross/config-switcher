@@ -1,6 +1,6 @@
 #include "header.h"
 
-#define NEXT_ARG \
+#define NEXT_ARG() \
 	if (i++ > argc) \
 	{ \
 		err(ARG_MISSING); \
@@ -25,16 +25,14 @@ int main(int argc, char *argv[])
 		}
 		else if (cmp(argv[i], "-s", "--style"))
 		{
-			if (i++ > argc)
-				err(ARG_MISSING);
+			NEXT_ARG();
 			args.style_name = argv[i];
 			if (verbose)
 				printf("%s\n", args.style_name);
 		}
 		else if (cmp(argv[i], "-c", "--config"))
 		{
-			if (i++ > argc)
-				err(ARG_MISSING);
+			NEXT_ARG();
 			args.config_name = argv[i];
 			if (verbose)
 				printf("%s\n", args.config_name);
@@ -42,8 +40,7 @@ int main(int argc, char *argv[])
 		}
 		else if (cmp(argv[i], "-p", "--program"))
 		{
-			if (i++ > argc)
-				err(ARG_MISSING);
+			NEXT_ARG();
 			args.program_name = argv[i];
 			if (verbose)
 				printf("%s\n", args.program_name);
