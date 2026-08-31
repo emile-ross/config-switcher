@@ -40,6 +40,8 @@ int main(int argc, char *argv[])
 		}
 		else if (cmp(argv[i], "-p", "--program"))
 		{
+			/* TODO: add a -t target flag in order to 
+			 * take in the target config filename (for the link) */
 			NEXT_ARG();
 			args.program_name = argv[i];
 			if (verbose)
@@ -59,18 +61,6 @@ int main(int argc, char *argv[])
 	{
 		fprintf(stderr, "Unspecified program name\nIt is used for the configuration directory\n");
 		return 4;
-	}
-	else
-	{
-		char *dst_link_name = get_config_name(args.program_name);
-		/* TODO: add a -t target flag in order to 
-		 * take in the target config filename (for the link) */
-
-		if (dst_link_name == NULL)
-		{
-			fprintf(stderr, "Your program is not supported (unknown default configuration).\n");
-			return 1;
-		}
 	}
 
 	return 0;

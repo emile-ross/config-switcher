@@ -1,6 +1,6 @@
 #include "header.h"
 
-char *get_config_name(const char *restrict program_name, Bool success)
+char *get_config_name(const char *restrict program_name, Bool *success)
 {
 	if (cmp(program_name, "nvim", "neovim"))
 		return "init.lua";
