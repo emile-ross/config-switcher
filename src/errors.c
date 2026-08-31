@@ -7,6 +7,7 @@
 void err(err_type error_code)
 {
 	Bool report = False;
+
 	switch (error_code)
 	{
 	case INVALID_ERR:
@@ -26,7 +27,6 @@ void err(err_type error_code)
 
 	case LSTAT_FAIL:
 		MSG("lstat() failed\n");
-
 
 	case INVALID_ARGS:
 		report = True;

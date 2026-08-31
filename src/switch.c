@@ -24,7 +24,13 @@ void switch_config(const char *src, const char *dst)
 		}
 	}
 
-	/* create a symlink at the config file location */
+	/* TODO: create a symlink at the config file location */
+	const char *cmd_template = "ln -sf %s %s";
+	char *cmd = bmalloc(cmd_template, src, dst);
+
+	/* use cmd buffer */
+
+	free(cmd);
 }
 
 Bool is_link(const char *path)
