@@ -10,8 +10,9 @@ Bool is_link(const char *path);
 
 void switch_config(const char *src, const char *dst)
 {
-	if (is_link(dst))
+	if (!(is_link(dst)))
 	{
+		/* check if there is a file at that location */
 		FILE *fp = fopen(dst, "r");
 		if (fp != NULL)
 		{
@@ -24,6 +25,8 @@ void switch_config(const char *src, const char *dst)
 			free(cmd);
 		}
 	}
+
+	/* create a symlink at the config file location */
 }
 
 Bool is_link(const char *path)
