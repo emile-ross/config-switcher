@@ -2,7 +2,7 @@
 
 #include <stdarg.h>
 
-char *bmalloc(const char *fmt, ...)
+char *bmalloc(const char *restrict fmt, ...)
 {
 	/* args copy is used for getting the string length *
 	 * args is for creating the final string */

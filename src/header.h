@@ -12,10 +12,10 @@
 	void err(err_type error_code);
 
 /* match_config.c */
-	char *get_config_name(char *program_name);
+	char *get_config_name(const char *restrict program_name);
 
 /* memory.c */
-	char *bmalloc(const char *fmt, ...);
+	char *bmalloc(const char *restrict fmt, ...);
 
 /* switch.c */
 	int switch_config(const char *src, const char *dst);
