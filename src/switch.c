@@ -31,7 +31,6 @@ Bool check_link(const char *path)
 	
 	if (lstat(path, &file_stat) == -1)
 	{
-		fprintf(stderr, "lstat() failed\n");
 		exit(1);
 	}
 	
