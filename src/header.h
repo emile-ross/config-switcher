@@ -5,8 +5,8 @@
 #include "enums.h"
 
 /* compare.c */
-	Bool cmp(char *arg, const char *s_one, const char *s_two);
-	Bool scmp(char *arg, char *s);
+	Bool cmp(const char *restrict arg, const char *restrict s_one, const char *restrict s_two);
+	Bool scmp(const char *restrict arg, const char *restrict s);
 
 /* errors.c */
 	void err(err_type error_code);

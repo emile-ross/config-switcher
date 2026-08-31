@@ -2,14 +2,14 @@
 
 #include <string.h>
 
-Bool cmp(char *arg, const char *s_one, const char *s_two)
+Bool cmp(const char *restrict arg, const char *restrict s_one, const char *restrict s_two)
 {
 	if (strcmp(arg, s_one) == 0) return True;
 	else if (strcmp(arg, s_two) == 0) return True;
 	else return False;
 }
 
-Bool scmp(char *arg, char *s)
+Bool scmp(const char *restrict arg, const char *restrict s)
 {
 	if (strcmp(arg, s) == 0) return True;
 	else return False;
