@@ -18,9 +18,7 @@ void switch_config(const char *src, const char *dst)
 		{
 			/* archive the old config file to a new path */
 			fclose(fp);
-			char *archive_path = bmalloc("archived-%s", dst);
-			char *cmd = bmalloc("mv %s %s", dst, archive_path);
-			free(archive_path);
+			char *cmd = bmalloc("mv %s archived-%s.old", dst, dst);
 			system(cmd);
 			free(cmd);
 		}
