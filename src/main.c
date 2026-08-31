@@ -52,6 +52,9 @@ int main(int argc, char *argv[])
 			return 1;
 		}
 	}
+
+
+	/* check if the program name (config directory) is specified) */
 	if (args.program_name == NULL)
 	{
 		fprintf(stderr, "Unspecified program name\nIt is used for the configuration directory\n");
@@ -60,6 +63,15 @@ int main(int argc, char *argv[])
 	else
 	{
 		char *dst_link_name = get_config_name(args.program_name);
+		/* TODO: add a -t target flag in order to 
+		 * take in the target config filename (for the link) */
+
+		if (dst_link_name == NULL)
+		{
+			fprintf(stderr, "Your program is not supported (unknown default configuration).\n");
+			return 1;
+		}
 	}
+
 	return 0;
 }
