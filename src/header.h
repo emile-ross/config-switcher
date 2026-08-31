@@ -12,7 +12,7 @@
 	void err(err_type error_code);
 
 /* match_config.c */
-	char *get_config_name(const char *restrict program_name);
+	char *get_config_name(const char *restrict program_name, Bool success);
 
 /* memory.c */
 	char *bmalloc(const char *restrict fmt, ...);
