@@ -48,6 +48,14 @@ int main(int argc, char *argv[])
 			if (verbose)
 				printf("%s\n", args.program_name);
 		}
+		else if (cmp(argv[i], "-t", "--target"))
+		{
+			NEXT_ARG();
+			args.target_link = argv[i];
+
+			if (verbose)
+				printf("%s\n", args.target_link);
+		}
 		else
 		{
 			ignored_arg(argv[i]);
