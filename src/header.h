@@ -4,6 +4,15 @@
 
 #include "enums.h"
 
+#define ANSI_RED	"\x1b[31m"
+#define ANSI_WHITE	"\x1b[97m"
+#define ANSI_YELLOW	"\x1b[33m"
+
+#define BOLD_S		"\x1B[1m" 
+#define UDRL_S  	"\x1B[4m" 
+
+#define STYLE_END	"\x1B[0m" 
+
 /* compare.c */
 	Bool cmp(const char *restrict arg, const char *restrict s_one, const char *restrict s_two);
 	Bool scmp(const char *restrict arg, const char *restrict s);

@@ -36,15 +36,13 @@ void arg_parser(command_args *args)
 		{
 			/* warn about unsuccessful match and the program's action of assuming 
 			 * the configuration name is 'config' */
-			fprintf(stderr, "Your program is not supported (unknown default configuration).\n");
-			exit(1);;
+			fprintf(stderr, ANSI_RED"Warning: Your program is not supported (unknown default configuration).\n"STYLE_END);
 		}
 	}
 
 	char *dst_fp = bmalloc(path_template, home, path_to_config, args->program_name, dst_filename);
 
-	if (dst_filename != NULL)
-		free(dst_filename);
+	free(dst_filename);
 
 	/* currently only dst_fp & src_fp are allocated */
 
