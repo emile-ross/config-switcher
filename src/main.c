@@ -49,9 +49,7 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			fprintf(stderr, "Ignored arg: %s\n", argv[i]);
-			fprintf(stderr, "You can view valid arguments using the --help flag\n");
-			return 1;
+			ignored_arg(argv[i]);
 		}
 	}
 

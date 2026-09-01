@@ -24,8 +24,7 @@ static const struct config_contents program_configs[] =
 	{ "sway", "config", NULL },
 	{ "vesktop", "settings.json", NULL },
 	{ "vlc", "vlcrc", "vlc-qt-interface.conf" },
-	{ "waybar", "config.json", "style.css" },
-	{ "waybar", "config.jsonc", NULL },
+	{ "waybar", "config.jsonc", "style.css" },
 	{ "wofi", "config", NULL },
 };
 
