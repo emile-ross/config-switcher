@@ -17,9 +17,3 @@ typedef enum
 	True = 1
 } Bool;
 
-typedef struct
-{
-	char *program_name;
-	char *config_name;
-	char *style_name;
-} command_args;

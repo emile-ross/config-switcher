@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include "enums.h"
+#include "structs.h"
 
 #define ANSI_RED	"\x1b[31m"
 #define ANSI_WHITE	"\x1b[97m"
