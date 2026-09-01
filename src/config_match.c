@@ -1,5 +1,10 @@
 #include "header.h"
 
+#define p_check(name, config_name) \
+	else if (scmp(program_name, name)) \
+		*(success) = True; \
+		return config_name;
+
 char *get_config_name(const char *restrict program_name, Bool *success)
 {
 	*(success) = True;
