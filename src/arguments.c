@@ -12,7 +12,9 @@ void arg_parser(command_args *args)
 	char *path_template = "%s/%s/%s/%s";
 
 	if (args->config_name != NULL)
+	{
 		src_fp = bmalloc(path_template, home, path_to_config, args->program_name, args->config_name);
+	}
 	else if (args->style_name != NULL)
 	{
 		style = True;
@@ -22,6 +24,7 @@ void arg_parser(command_args *args)
 		err(INVALID_ARGS);
 
 	char *dst_filename = NULL;
+
 	if (style)
 		dst_filename = bmalloc("style.css");	/* defaults to style.css for the style name */
 	else

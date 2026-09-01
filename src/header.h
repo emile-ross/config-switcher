@@ -20,5 +20,8 @@
 /* switch.c */
 	int switch_config(const char *src, const char *dst);
 
+/* arguments.c */
+	void arg_parser(command_args *args);
+
 extern const char *path_to_config;
 
