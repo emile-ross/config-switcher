@@ -47,8 +47,8 @@ void err(err_type error_code)
 	exit(1);
 }
 
-void ignored_flag(char *flag)
+void ignored_arg(char *flag)
 {
-	fprintf(stderr, "Ignored arg: %s\n", argv[i]);
+	fprintf(stderr, "Ignored arg: %s\n", flag);
 	fprintf(stderr, "You can view valid arguments using the --help flag\n");
 }

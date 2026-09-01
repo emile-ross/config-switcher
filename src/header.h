@@ -19,6 +19,7 @@
 
 /* errors.c */
 	void err(err_type error_code);
+	void ignored_arg(char *flag);
 
 /* match_config.c */
 	char *get_config_name(const char *restrict program_name, Bool *success);
@@ -33,10 +34,3 @@
 	void arg_parser(command_args *args);
 
 extern const char *path_to_config;
-
-struct config_contents
-{
-	char *program_name;
-	char *config_name;
-	char *style_name;
-};

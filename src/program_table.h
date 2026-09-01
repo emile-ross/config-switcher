@@ -1,3 +1,9 @@
+struct config_contents
+{
+	char *program_name;
+	char *config_name;
+	char *style_name;
+};
 
 static const struct config_contents program_configs[] = 
 {
