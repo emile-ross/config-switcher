@@ -1,5 +1,5 @@
 
-static const struct config_contents program_configs[] = 
+static const config_contents program_configs[] = 
 {
 	{ "bpytop", "bpytop.conf", NULL },
 	{ "btop", "btop.conf", NULL },

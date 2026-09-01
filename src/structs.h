@@ -1,5 +1,3 @@
-#define 
-
 typedef struct
 {
 	char *program_name;
