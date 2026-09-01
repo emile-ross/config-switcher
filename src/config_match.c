@@ -1,6 +1,6 @@
 #include "header.h"
 
-#include "program_table.h"
+#include "table.h"
 
 #define ch(name) \
 	scmp(program_name, name)
