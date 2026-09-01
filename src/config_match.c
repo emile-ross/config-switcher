@@ -2,6 +2,8 @@
 
 char *get_config_name(const char *restrict program_name, Bool *success)
 {
+	*(success) = True;
+
 	if (cmp(program_name, "nvim", "neovim"))
 		return "init.lua";
 	else if (cmp(program_name, "hypr", "hyprland"))
@@ -17,6 +19,9 @@ char *get_config_name(const char *restrict program_name, Bool *success)
 	else if (scmp(program_name, "sway"))
 		return "config";
 	else
+	{
+		*(success) = False;
 		return NULL;
+	}
 }
 
