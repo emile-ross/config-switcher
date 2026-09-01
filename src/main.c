@@ -53,12 +53,8 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	/* check if the program name (config directory) is specified) */
-	if (args.program_name == NULL)
-	{
-		fprintf(stderr, "Unspecified program name\nIt is used for the configuration directory\n");
-		return 4;
-	}
+	/* check if the program name (config directory) is specified) 
+	 * ( done in arg_parser() )*/
 
 	arg_parser(&args);
 
