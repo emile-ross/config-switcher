@@ -2,8 +2,10 @@
 
 #define p_check(name, config_name) \
 	else if (scmp(program_name, name)) \
+	{ \
 		*(success) = True; \
-		return config_name;
+		return config_name; \
+	}
 
 char *get_config_name(const char *restrict program_name, Bool *success)
 {
@@ -13,16 +15,11 @@ char *get_config_name(const char *restrict program_name, Bool *success)
 		return "init.lua";
 	else if (cmp(program_name, "hypr", "hyprland"))
 		return "hyprland.conf";
-	else if (scmp(program_name, "waybar"))
-		return "config.jsonc";
-	else if (scmp(program_name, "rofi"))
-		return "config.rasi";
-	else if (scmp(program_name, "wofi"))
-		return "config";
-	else if (scmp(program_name, "cava"))
-		return "config";
-	else if (scmp(program_name, "sway"))
-		return "config";
+	p_check("waybar", "config.jsonc");
+	p_check("rofi", "config.rasi");
+	p_check("wofi", "config");
+	p_check("cava", "config");
+	p_check("sway", "config");
 	else
 	{
 		*(success) = False;
