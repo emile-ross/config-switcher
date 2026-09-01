@@ -34,3 +34,9 @@
 
 extern const char *path_to_config;
 
+struct config_contents
+{
+	char *program_name;
+	char *config_name;
+	char *style_name;
+};
