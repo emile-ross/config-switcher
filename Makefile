@@ -1,6 +1,6 @@
 CC = gcc
 
-SRC := main compare errors memory paths config_match switch arguments program_table
+SRC := main compare errors memory paths config_match switch arguments
 PKG_NAME = config-switch
 OUT = -o $(PKG_NAME)
 

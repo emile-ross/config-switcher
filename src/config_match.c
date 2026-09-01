@@ -1,5 +1,7 @@
 #include "header.h"
 
+#include "program_table.h"
+
 #define ch(name) \
 	scmp(program_name, name)
 
@@ -7,41 +9,22 @@ char *get_config_name(const char *restrict program_name, Bool *success)
 {
 	*(success) = True;
 
-	if (cmp(program_name, "nvim", "neovim"))
-		return "init.lua";
-	else if (cmp(program_name, "hypr", "hyprland"))
-		return "hyprland.conf";
-	else if (ch("mpv"))
-		return "mpv.conf";
-	else if (ch("lazygit"))
-		return "config.yml";
-	else if (ch("fuzzel"))
-		return "fuzzel.ini";
-	else if (ch("neofetch"))
-		return "config.conf";
-	else if (ch("htop"))
-		return "htoprc";
-	else if (ch("fastfetch"))
-		return "config.jsonc";
-	else if (ch("kitty"))
-		return "kitty.conf";
-	else if (ch("btop"))
-		return "btop.conf";
-	else if (ch("waybar"))
-		return "config.jsonc";
-	else if (ch("rofi"))
-		return "config.rasi";
-	else if (ch("wofi"))
-		return "config";
-	else if (ch("cava"))
-		return "config";
-	else if (ch("sway"))
-		return "config";
-	else
+	/* get the total number of configs (in the program) */
+	uint16_t num_configs = sizeof(program_configs) / sizeof(program_configs[0]);
+
+	for (uint16_t i = 0; i < num_configs; i++)
 	{
-		*(success) = False;
-		/* defaults to 'config' for the configuration name */
-		return "config";
+		if (scmp(program_name, (program_configs[i]).program_name))
+		{
+			*(success) = True;
+			/* TODO make use of the style name 
+			 * the program currently defaults to style.css */
+			return program_configs[i].config_name;
+		}
 	}
+
+	/* defaults to 'config' for the configuration name */
+	*(success) = False;
+	return "config";
 }
 

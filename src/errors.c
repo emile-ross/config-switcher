@@ -34,7 +34,7 @@ void err(err_type error_code)
 
 	case BUF_TRUNCATION:
 		report = True;
-		MSG("The string has been truncated (internal failiure)\n");
+		MSG("The string has been truncated (internal failure)\n");
 
 	default:
 		report = True;
@@ -43,6 +43,6 @@ void err(err_type error_code)
 
 	if (report)
 		fprintf(stderr, "Please report this issue on github at"
-				" https://github.com/emile-ross/config-switcher/issues/");
+				" https://github.com/emile-ross/config-switcher/issues/\n");
 	exit(1);
 }
