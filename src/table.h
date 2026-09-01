@@ -1,3 +1,4 @@
+
 static const struct config_contents program_configs[] = 
 {
 	{ "bpytop", "bpytop.conf", NULL },

@@ -1,6 +1,6 @@
 #include "header.h"
 
-void arg_parser(command_args *args)
+void arg_parser(config_contents *args)
 {
 	if (args->program_name == NULL)
 		err(INVALID_ARGS);

@@ -11,7 +11,7 @@ const Bool verbose = True;
 int main(int argc, char *argv[])
 {
 	uint8_t i = 1;	/* ignore first argument (arg 0) */
-	command_args args = { NULL, NULL, NULL };
+	config_contents args = { NULL, NULL, NULL };
 
 	if (!(argc > 2))
 		err(ARG_NONE);
