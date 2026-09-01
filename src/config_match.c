@@ -2,9 +2,6 @@
 
 #include "table.h"
 
-#define ch(name) \
-	scmp(program_name, name)
-
 char *get_config_name(const char *restrict program_name, Bool *success)
 {
 	*(success) = True;
