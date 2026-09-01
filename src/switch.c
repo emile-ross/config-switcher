@@ -16,6 +16,11 @@ int switch_config(const char *src, const char *dst)
 		FILE *fp = fopen(dst, "r");
 		if (fp != NULL)
 		{
+			if (verbose)
+			{
+				printf("Found file conflicts at \'%s\'\n", dst);
+			}
+
 			/* archive the old config file to a new path */
 			fclose(fp);
 			char *cmd = bmalloc("mv %s archived-%s.old", dst, dst);
@@ -23,14 +28,26 @@ int switch_config(const char *src, const char *dst)
 			free(cmd);
 		}
 	}
+	else
+	{
+		if (verbose)
+			printf("Link found at '%s' file path (overwritting the link ...)\n", dst);
+	}
 
-	/* TODO: create a symlink at the config file location */
 	const char *cmd_template = "ln -sf %s %s";
 	char *cmd = bmalloc(cmd_template, src, dst);
 
 	/* execute linking command
 	 * links the configuration to the correct path */
-	int ret = system(cmd);
+	int ret = 0;
+
+	if (verbose)
+		printf(cmd);
+
+	if (testing)
+	{
+		ret = system(cmd);
+	}
 
 	free(cmd);
 

@@ -7,6 +7,7 @@
 	}
 
 const Bool verbose = True;
+const Bool testing = True;
 
 int main(int argc, char *argv[])
 {
