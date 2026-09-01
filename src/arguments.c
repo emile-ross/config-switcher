@@ -42,13 +42,18 @@ void arg_parser(command_args *args)
 	}
 
 	char *dst_fp = bmalloc(path_template, home, path_to_config, args->program_name, dst_filename);
-	free(dst_filename);
+
+	if (dst_filename != NULL)
+		free(dst_filename);
 
 	/* currently only dst_fp & src_fp are allocated */
 
 	/* switch config files & make the link */
 	switch_config(src_fp, dst_fp);
 
-	free(src_fp);
-	free(dst_fp);
+	if (src_fp != NULL)
+		free(src_fp);
+
+	if (dst_fp != NULL)
+		free(dst_fp);
 }

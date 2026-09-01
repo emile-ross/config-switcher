@@ -21,7 +21,8 @@ char *get_config_name(const char *restrict program_name, Bool *success)
 	else
 	{
 		*(success) = False;
-		return NULL;
+		/* defaults to 'config' for the configuration name */
+		return "config";
 	}
 }
 
