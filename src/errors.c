@@ -46,3 +46,9 @@ void err(err_type error_code)
 				" https://github.com/emile-ross/config-switcher/issues/\n");
 	exit(1);
 }
+
+void ignored_flag(char *flag)
+{
+	fprintf(stderr, "Ignored arg: %s\n", argv[i]);
+	fprintf(stderr, "You can view valid arguments using the --help flag\n");
+}
