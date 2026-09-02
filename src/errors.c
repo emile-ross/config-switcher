@@ -42,13 +42,13 @@ void err(err_type error_code)
 	}
 
 	if (report)
-		fprintf(stderr, "Please report this issue on github at"
-				" https://github.com/emile-ross/config-switcher/issues/\n");
+		fprintf(stderr, "Please report this issue on github at "
+				UDRL_S"https://github.com/emile-ross/config-switcher/issues/\n"STYLE_END);
 	exit(1);
 }
 
 void ignored_arg(char *flag)
 {
-	fprintf(stderr, "Ignored arg: %s\n", flag);
-	fprintf(stderr, "You can view valid arguments using the --help flag\n");
+	fprintf(stderr, ANSI_RED BOLD_S"Ignored arg: %s\n"STYLE_END, flag);
+	fprintf(stderr, ANSI_RED BOLD_S"You can view valid arguments using the --help flag\n"STYLE_END);
 }
