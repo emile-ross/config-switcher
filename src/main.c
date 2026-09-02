@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 		{
 			NEXT_ARG();
 			export_type = style;
-			args.style_name = argv[i];
+			args.src_filename = argv[i];
 			if (verbose)
 				printf("source filename for style %s\n", args.src_filename);
 		}
@@ -38,9 +38,9 @@ int main(int argc, char *argv[])
 		{
 			NEXT_ARG();
 			export_type = config;
-			args.config_name = argv[i];
+			args.src_filename = argv[i];
 			if (verbose)
-				printf("%s\n", args.config_name);
+				printf("%s\n", args.src_filename);
 
 		}
 		else if (cmp(argv[i], "-p", "--program"))
@@ -55,10 +55,10 @@ int main(int argc, char *argv[])
 		else if (cmp(argv[i], "-t", "--target"))
 		{
 			NEXT_ARG();
-			args.target_link = argv[i];
+			args.dst_filename = argv[i];
 
 			if (verbose)
-				printf("%s\n", args.target_link);
+				printf("%s\n", args.dst_filename);
 		}
 		else
 		{
@@ -68,7 +68,6 @@ int main(int argc, char *argv[])
 
 	/* check if the program name (config directory) is specified) 
 	 * ( done in arg_parser() )*/
-
 	arg_parser(&args);
 
 	return 0;
