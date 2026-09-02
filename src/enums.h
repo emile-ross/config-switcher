@@ -17,3 +17,9 @@ typedef enum
 	True = 1
 } Bool;
 
+enum config_switch_type
+{
+	undefined,
+	config,
+	style,
+};

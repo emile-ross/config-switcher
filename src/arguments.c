@@ -7,7 +7,7 @@ void arg_parser(config_contents *args)
 
 	const char *home = getenv("HOME");
 
-	Bool style = False;
+	Bool style_is_used = False;	/* will be deprecated (newer enum config_switch_type) */
 	char *src_fp = NULL;
 	char *path_template = "%s/%s/%s/%s";
 
@@ -17,7 +17,7 @@ void arg_parser(config_contents *args)
 	}
 	else if (args->style_name != NULL)
 	{
-		style = True;
+		style_is_used = True;
 		src_fp = bmalloc(path_template, home, path_to_config, args->program_name, args->style_name);
 	}
 	else
@@ -25,7 +25,7 @@ void arg_parser(config_contents *args)
 
 	char *dst_filename = NULL;
 
-	if (style)
+	if (style_is_used)
 		dst_filename = bmalloc("style.css");	/* defaults to style.css for the style name */
 	else
 	{

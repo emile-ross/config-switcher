@@ -34,7 +34,8 @@
 /* arguments.c */
 	void arg_parser(config_contents *args);
 
-extern const char *path_to_config;
+/* path.c */
+	extern const char *path_to_config;
 
 /* main.c gloal variables */
 	extern const Bool verbose;
