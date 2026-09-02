@@ -12,7 +12,9 @@ const Bool testing = True;
 int main(int argc, char *argv[])
 {
 	uint8_t i = 1;	/* ignore first argument (arg 0) */
-	config_contents args = { NULL, NULL, NULL };
+	arg_config_contents args = { NULL, NULL, NULL };
+	/* used for identifying the type of back that will occur */
+	enum config_switch_type export_type = undefined;
 
 	if (!(argc > 2))
 		err(ARG_NONE);
@@ -27,13 +29,15 @@ int main(int argc, char *argv[])
 		else if (cmp(argv[i], "-s", "--style"))
 		{
 			NEXT_ARG();
+			export_type = style;
 			args.style_name = argv[i];
 			if (verbose)
-				printf("%s\n", args.style_name);
+				printf("source filename for style %s\n", args.src_filename);
 		}
 		else if (cmp(argv[i], "-c", "--config"))
 		{
 			NEXT_ARG();
+			export_type = config;
 			args.config_name = argv[i];
 			if (verbose)
 				printf("%s\n", args.config_name);
