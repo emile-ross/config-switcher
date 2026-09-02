@@ -1,7 +1,7 @@
 #include "header.h"
 
 #define MSG(err_msg) \
-	fprintf(stderr, err_msg); \
+	fprintf(stderr, "error: %s", err_msg); \
 	break;
 
 void err(err_type error_code)
