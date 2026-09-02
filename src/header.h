@@ -32,7 +32,7 @@
 	int switch_config(const char *src, const char *dst);
 
 /* arguments.c */
-	void arg_parser(config_contents *args);
+	void arg_parser(arg_config_contents *args);
 
 /* path.c */
 	extern const char *path_to_config;

@@ -11,14 +11,9 @@ void arg_parser(arg_config_contents *args)
 	char *src_fp = NULL;
 	char *path_template = "%s/%s/%s/%s";
 
-	if (args->config_name != NULL)
+	if (args->src_filepath != NULL)
 	{
-		src_fp = bmalloc(path_template, home, path_to_config, args->program_name, args->config_name);
-	}
-	else if (args->style_name != NULL)
-	{
-		style_is_used = True;
-		src_fp = bmalloc(path_template, home, path_to_config, args->program_name, args->style_name);
+		src_fp = bmalloc(path_template, home, path_to_config, args->program_name, args->src_filename);
 	}
 	else
 		err(INVALID_ARGS);
