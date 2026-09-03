@@ -23,7 +23,7 @@
 	void ignored_arg(char *flag);
 
 /* match_config.c */
-	char *get_config_name(const char *restrict program_name, Bool *success);
+	char *get_config_name(const char *restrict program_name, Bool *success, enum config_switch_type export_type);
 
 /* memory.c */
 	char *bmalloc(const char *restrict fmt, ...);

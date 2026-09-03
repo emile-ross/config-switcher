@@ -33,7 +33,7 @@ void arg_parser(arg_config_contents *args, enum config_switch_type export_type)
 		else if (export_type == config)
 		{
 			Bool success = False;
-			dst_filename = bmalloc(get_config_name(args->program_name, &success));
+			dst_filename = bmalloc(get_config_name(args->program_name, &success, export_type));
 
 			if (!success)
 			{
