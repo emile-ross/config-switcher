@@ -20,6 +20,15 @@ char *get_config_name(const char *restrict program_name, Bool *success, enum con
 			{
 				return program_configs[i].config_name;
 			}
+			else if (export_type == style)
+			{
+				return program_configs[i].style_name;
+			}
+			else
+			{
+				fprintf(stderr, "Unknown config type in config_match.c\n");
+				break;
+			}
 		}
 	}
 
