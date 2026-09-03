@@ -14,6 +14,13 @@ char *bmalloc(const char *restrict fmt, ...)
 	size_t str_len = 1 + (size_t)vsnprintf(NULL, 0, fmt, args_copy);
 	va_end(args_copy);
 
+	if (str_len <= 0)
+	{
+		fprintf(stderr, "Invalid memory allocation value\n");
+		fprintf(stderr, "malloc() cannot allocate a zero sized memory buffer\n");
+		exit(1);
+	}
+
 	char *str = malloc(str_len);
 	/* check for malloc() failure*/
 	if (str == NULL)
