@@ -37,6 +37,13 @@ void arg_parser(arg_config_contents *args, enum config_switch_type export_type)
 			fprintf(stderr, ANSI_RED"Warning: Your program is not supported (unknown default configuration).\n"STYLE_END);
 		}
 	}
+	else
+	{
+		fprintf(stderr, "Unknown exporting type (undefined)\n");
+		free(src_fp);
+		free(dst_filename);
+		exit(-1);
+	}
 
 	char *dst_fp = bmalloc(path_template, home, path_to_config, args->program_name, dst_filename);
 
