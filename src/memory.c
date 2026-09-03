@@ -17,13 +17,19 @@ char *bmalloc(const char *restrict fmt, ...)
 	char *str = malloc(str_len);
 	/* check for malloc() failure*/
 	if (str == NULL)
-		err(MALLOC_FAIL);
+	{
+		err(MALLOC_FAIL);	/* should exit */
+		return NULL;
+	}
 
 	/* store the return value of the string length in 'ret' */
 	int ret = vsnprintf(str, str_len, fmt, args);
 	va_end(args);
 	if ((unsigned)ret < str_len)
+	{
 		err(BUF_TRUNCATION);
+		return NULL;
+	}
 	
 	return str;
 }

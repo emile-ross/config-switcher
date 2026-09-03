@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 
 	/* check if the program name (config directory) is specified) 
 	 * ( done in arg_parser() )*/
-	arg_parser(&args);
+	arg_parser(&args, export_type);
 
 	return 0;
 }

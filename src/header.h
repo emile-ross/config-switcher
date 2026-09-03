@@ -32,7 +32,6 @@
 	int switch_config(const char *src, const char *dst);
 
 /* arguments.c */
-	void arg_parser(arg_config_contents *args);
 	void arg_parser(arg_config_contents *args, enum config_switch_type export_type);
 
 /* path.c */
