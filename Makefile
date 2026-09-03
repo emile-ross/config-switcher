@@ -11,4 +11,4 @@ FLAGS := -Wall -Wextra -Wpedantic -std=c99 -Wconversion -Wshadow -Wundef -Wcast-
 
 all: base
 base: 
-	$(CC) $(SRC_FILES) $(OUT) $(FLAGS)
+	$(CC) $(SRC_FILES) $(OUT) $(FLAGS) 

@@ -18,7 +18,7 @@ int switch_config(const char *src, const char *dst)
 		{
 			if (verbose)
 			{
-				printf("Found file conflicts at \'%s\'\n", dst);
+				printf("File conflicts at \'%s\'\nIt conflicts with the new file path\n", dst);
 			}
 
 			/* archive the old config file to a new path */
