@@ -7,7 +7,6 @@ void arg_parser(arg_config_contents *args, enum config_switch_type export_type)
 
 	const char *home = getenv("HOME");
 
-	Bool style_is_used = False;	/* will be deprecated (newer enum config_switch_type) */
 	char *src_fp = NULL;
 	char *path_template = "%s/%s/%s/%s";
 
@@ -20,9 +19,13 @@ void arg_parser(arg_config_contents *args, enum config_switch_type export_type)
 
 	char *dst_filename = NULL;
 
-	if (style_is_used)
+	/* TODO handle target flag */
+
+	if (export_type == style)
+	{
 		dst_filename = bmalloc("style.css");	/* defaults to style.css for the style name */
-	else
+	}
+	else if (export_type == config)
 	{
 		Bool success = False;
 		dst_filename = bmalloc(get_config_name(args->program_name, &success));
