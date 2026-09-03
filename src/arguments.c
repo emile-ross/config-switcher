@@ -19,7 +19,6 @@ void arg_parser(arg_config_contents *args, enum config_switch_type export_type)
 
 	char *dst_filename = NULL;
 
-	/* TODO handle target flag */
 	if (args->dst_filename != NULL)
 	{
 		/* target flag is specified */

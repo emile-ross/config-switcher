@@ -1,7 +1,7 @@
 #include "header.h"
 
 #define MSG(err_msg) \
-	fprintf(stderr, "error: %s", err_msg); \
+	fprintf(stderr, "\x1b[31merror: %s\x1b[0m", err_msg); \
 	break;
 
 void err(err_type error_code)
@@ -29,7 +29,6 @@ void err(err_type error_code)
 		MSG("lstat() failed\n");
 
 	case INVALID_ARGS:
-		report = True;
 		MSG("The arguments are missing in the arg_parser() function\n");
 
 	case BUF_TRUNCATION:

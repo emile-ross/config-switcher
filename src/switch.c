@@ -50,7 +50,6 @@ int switch_config(const char *src, const char *dst)
 	}
 
 	free(cmd);
-
 	return ret;
 }
 
