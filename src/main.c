@@ -45,8 +45,6 @@ int main(int argc, char *argv[])
 		}
 		else if (cmp(argv[i], "-p", "--program"))
 		{
-			/* TODO: add a -t target flag in order to 
-			 * take in the target config filename (for the link) */
 			NEXT_ARG();
 			args.program_name = argv[i];
 			if (verbose)

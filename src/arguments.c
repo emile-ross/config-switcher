@@ -1,6 +1,6 @@
 #include "header.h"
 
-void arg_parser(arg_config_contents *args)
+void arg_parser(arg_config_contents *args, enum config_switch_type export_type)
 {
 	if (args->program_name == NULL)
 		err(INVALID_ARGS);
@@ -11,7 +11,7 @@ void arg_parser(arg_config_contents *args)
 	char *src_fp = NULL;
 	char *path_template = "%s/%s/%s/%s";
 
-	if (args->src_filepath != NULL)
+	if (args->src_filename != NULL)
 	{
 		src_fp = bmalloc(path_template, home, path_to_config, args->program_name, args->src_filename);
 	}
