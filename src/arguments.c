@@ -20,29 +20,36 @@ void arg_parser(arg_config_contents *args, enum config_switch_type export_type)
 	char *dst_filename = NULL;
 
 	/* TODO handle target flag */
-
-	if (export_type == style)
+	if (args->dst_filename != NULL)
 	{
-		dst_filename = bmalloc("style.css");	/* defaults to style.css for the style name */
-	}
-	else if (export_type == config)
-	{
-		Bool success = False;
-		dst_filename = bmalloc(get_config_name(args->program_name, &success));
-
-		if (!success)
-		{
-			/* warn about unsuccessful match and the program's action of assuming 
-			 * the configuration name is 'config' */
-			fprintf(stderr, ANSI_RED"Warning: Your program is not supported (unknown default configuration).\n"STYLE_END);
-		}
+		/* target flag is specified */
+		dst_filename = args->dst_filename;
 	}
 	else
 	{
-		fprintf(stderr, "Unknown exporting type (undefined)\n");
-		free(src_fp);
-		free(dst_filename);
-		exit(-1);
+		if (export_type == style)
+		{
+			dst_filename = bmalloc("style.css");	/* defaults to style.css for the style name */
+		}
+		else if (export_type == config)
+		{
+			Bool success = False;
+			dst_filename = bmalloc(get_config_name(args->program_name, &success));
+
+			if (!success)
+			{
+				/* warn about unsuccessful match and the program's action of assuming 
+				 * the configuration name is 'config' */
+				fprintf(stderr, ANSI_RED"Warning: Your program is not supported (unknown default configuration).\n"STYLE_END);
+			}
+		}
+		else
+		{
+			fprintf(stderr, "Unknown exporting type (undefined)\n");
+			free(src_fp);
+			free(dst_filename);
+			exit(-1);
+		}
 	}
 
 	char *dst_fp = bmalloc(path_template, home, path_to_config, args->program_name, dst_filename);
