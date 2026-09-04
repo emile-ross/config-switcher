@@ -34,13 +34,6 @@ void arg_parser(arg_config_contents *args, enum config_switch_type export_type)
 		{
 			Bool success = False;
 			dst_filename = bmalloc(get_config_name(args->program_name, &success, export_type));
-
-			if (!success)
-			{
-				/* warn about unsuccessful match and the program's action of assuming 
-				 * the configuration name is 'config' */
-				fprintf(stderr, ANSI_RED"Warning: Your program is not supported (unknown default configuration).\n"STYLE_END);
-			}
 		}
 		else
 		{
@@ -48,6 +41,13 @@ void arg_parser(arg_config_contents *args, enum config_switch_type export_type)
 			free(src_fp);
 			free(dst_filename);
 			exit(-1);
+		}
+
+		if (!success)
+		{
+			/* warn about unsuccessful match and the program's action of assuming 
+			 * the configuration name is 'config' */
+			fprintf(stderr, ANSI_RED"Warning: Your program is not supported (unknown default configuration).\n"STYLE_END);
 		}
 	}
 
