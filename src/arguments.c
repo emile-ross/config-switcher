@@ -27,11 +27,7 @@ void arg_parser(arg_config_contents *args, enum config_switch_type export_type)
 	else
 	{
 		Bool success = False;
-		if (export_type == style)
-		{
-			dst_filename = bmalloc(get_config_name(args->program_name, &success, export_type));
-		}
-		else if (export_type == config)
+		if (export_type == style || export_type == config)
 		{
 			dst_filename = bmalloc(get_config_name(args->program_name, &success, export_type));
 		}

@@ -10,4 +10,7 @@ static const config_contents program_configs[] =
 	 *
 	 * You can add multiple files with the same identifier */
 
+	/* { "default", "old-name.conf", "new-name.conf" } */
+	/* { "waybar", "old-style.css", "style.css" } */
+
 };
