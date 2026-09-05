@@ -41,7 +41,7 @@ void err(err_type error_code)
 	}
 
 	if (report)
-		fprintf(stderr, "Please report this issue on github at "
+		fprintf(stderr, BOLD_S"Please report this issue on github at "
 				UDRL_S"https://github.com/emile-ross/config-switcher/issues/\n"STYLE_END);
 	exit(1);
 }

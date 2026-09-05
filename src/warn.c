@@ -2,7 +2,6 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-
 #define ANSI_RED	"\x1b[31m"
 #define STYLE_END	"\x1B[0m" 
 
@@ -25,5 +24,5 @@ void warn(const char *restrict fmt, ...)
 		fprintf(stderr, ANSI_RED"Truncated warning message\n"STYLE_END);
 	}
 
-	printf("\x1b[31m%s\n\x1b[0m", str);
+	printf(ANSI_RED"%s\n"STYLE_END, str);
 }
