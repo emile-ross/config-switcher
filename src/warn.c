@@ -2,6 +2,10 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
+
+#define ANSI_RED	"\x1b[31m"
+#define STYLE_END	"\x1B[0m" 
+
 void warn(const char *restrict fmt, ...)
 {
 	va_list args, copy;
