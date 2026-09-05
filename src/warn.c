@@ -16,5 +16,10 @@ void warn(const char *restrict fmt, ...)
 	char *str = malloc(size);
 	int ret = snprintf(str, size, fmt, args);
 
+	if (ret > (signed)size)
+	{
+		fprintf(stderr, ANSI_RED"Truncated warning message\n"STYLE_END);
+	}
+
 	printf("\x1b[31m%s\n\x1b[0m", str);
 }
