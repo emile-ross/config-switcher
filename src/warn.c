@@ -25,4 +25,6 @@ void warn(const char *restrict fmt, ...)
 	}
 
 	printf(ANSI_RED"%s\n"STYLE_END, str);
+
+	free(str);
 }

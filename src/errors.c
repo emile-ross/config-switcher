@@ -48,6 +48,6 @@ void err(err_type error_code)
 
 void ignored_arg(char *flag)
 {
-	fprintf(stderr, ANSI_RED BOLD_S"Ignored arg: %s\n"STYLE_END, flag);
-	fprintf(stderr, ANSI_RED BOLD_S"You can view valid arguments using the --help flag\n"STYLE_END);
+	warn(ANSI_RED BOLD_S"Ignored arg: %s\n"STYLE_END, flag);
+	warn(ANSI_RED BOLD_S"You can view valid arguments using the --help flag\n"STYLE_END);
 }
