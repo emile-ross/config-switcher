@@ -27,7 +27,7 @@ char *get_config_name(const char *restrict program_name, Bool *success, enum con
 			else
 			{
 				*(success) = False;
-				fprintf(stderr, "Unknown config type in config_match.c\n");
+				warn("Unknown config type in config_match.c\n");
 				break;
 			}
 		}

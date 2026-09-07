@@ -37,6 +37,9 @@
 /* path.c */
 	extern const char *path_to_config;
 
+/* warn.c */
+	void warn(const char *restrict fmt, ...);
+
 /* main.c gloal variables */
 	extern const Bool verbose;
 	extern const Bool testing;
