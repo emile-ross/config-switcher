@@ -14,6 +14,9 @@
 
 #define STYLE_END	"\x1B[0m" 
 
+/* arguments.c */
+	void arg_parser(arg_config_contents *args, enum config_switch_type export_type);
+
 /* compare.c */
 	Bool cmp(const char *restrict arg, const char *restrict s_one, const char *restrict s_two);
 	Bool scmp(const char *restrict arg, const char *restrict s);
@@ -22,24 +25,21 @@
 	void err(err_type error_code);
 	void ignored_arg(char *flag);
 
+/* main.c gloal variables */
+	extern const Bool verbose;
+	extern const Bool testing;
+
 /* match_config.c */
 	char *get_config_name(const char *restrict program_name, Bool *success, enum config_switch_type export_type);
 
 /* memory.c */
 	char *bmalloc(const char *restrict fmt, ...);
 
-/* switch.c */
-	int switch_config(const char *src, const char *dst);
-
-/* arguments.c */
-	void arg_parser(arg_config_contents *args, enum config_switch_type export_type);
-
 /* path.c */
 	extern const char *path_to_config;
 
+/* switch.c */
+	int switch_config(const char *src, const char *dst);
+
 /* warn.c */
 	void warn(const char *restrict fmt, ...);
-
-/* main.c gloal variables */
-	extern const Bool verbose;
-	extern const Bool testing;
