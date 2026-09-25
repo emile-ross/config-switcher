@@ -36,5 +36,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
+	lookup_keyword(switching_keyword);
+
 	return 0;
 }

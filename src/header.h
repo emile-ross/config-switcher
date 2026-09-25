@@ -36,3 +36,6 @@
 
 /* switch.c */
 	int switch_config(const char *src, const char *dst);
+
+
+void lookup_keyword(char *switching_keyword);
