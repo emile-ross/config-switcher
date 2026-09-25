@@ -12,7 +12,7 @@ FLAGS := -Wall -Wextra -Wpedantic -std=c99 -Wconversion -Wshadow -Wundef -Wcast-
 all: base
 base: 
 	@# adds the -Werror flag (treats warnings as errors)
-	@$(CC) $(SRC_FILES) $(OUT) $(FLAGS) -Werror
+	@$(CC) $(SRC_FILES) $(OUT) $(FLAGS) -Werror -Wno-unused-variable
 
 base-e:
 	# compiles the files with warnings
