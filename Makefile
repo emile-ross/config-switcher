@@ -1,14 +1,20 @@
 CC = gcc
 
-SRC := arguments compare get_config errors main memory paths switch warn
+SRC := compare errors main memory switch warn
 PKG_NAME = config-switch
 OUT = -o $(PKG_NAME)
 
 SRC_FP := $(addprefix src/, $(SRC))
 SRC_FILES := $(addsuffix .c, $(SRC_FP))
 
-FLAGS := -Wall -Wextra -Wpedantic -std=c99 -Wconversion -Wshadow -Wundef -Wcast-qual -Wcast-align
+FLAGS := -Wall -Wextra -Wpedantic -std=c99 -Wconversion -Wshadow -Wundef -Wcast-qual -Wcast-align -Wswitch-enum
 
 all: base
 base: 
-	$(CC) $(SRC_FILES) $(OUT) $(FLAGS) 
+	@# adds the -Werror flag (treats warnings as errors)
+	@$(CC) $(SRC_FILES) $(OUT) $(FLAGS) -Werror
+
+base-e:
+	# compiles the files with warnings
+	$(CC) $(SRC_FILES) $(OUT) $(FLAGS)
+

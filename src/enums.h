@@ -7,7 +7,6 @@ typedef enum
 	ARG_NONE = 3,
 	BUF_TRUNCATION = 21,
 	LSTAT_FAIL = 22,
-	NO_CONFIG_TYPE = 23,
 	INVALID_ARGS = 40,
 	MALLOC_FAIL = 41
 } err_type;
