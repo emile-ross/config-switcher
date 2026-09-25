@@ -35,6 +35,9 @@ void err(err_type error_code)
 	case NO_SUCH_FILE:
 		MSG("No such file or directory\n");
 
+	case INT_OVERFLOW:
+		MSG("Integer overflow detected (exiting)\n");
+
 	default:
 		report = True;
 		MSG("Invalid error message");

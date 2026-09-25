@@ -13,6 +13,24 @@
 
 #define RESET		"\x1B[0m" 
 
+/* 8 bit */
+	#define INT8MAX (127)
+	#define INT8MIN (-127)
+	
+	#define UINT8MAX (255)
+
+/* 16 bit */
+	#define INT16MIN (32767)
+	#define INT16MAX (32767)
+	
+	#define UINT16MAX (65535)
+
+/* 32 bit */
+	#define INT32MAX (2147483647)
+	#define INT32MIN (-2147483647)
+	
+	#define UINT32MAX (4294967295)
+
 /* compare.c */
 	Bool cmp(const char *restrict arg, const char *restrict s_one, const char *restrict s_two);
 	Bool scmp(const char *restrict arg, const char *restrict s);

@@ -7,7 +7,8 @@ typedef enum
 	BUF_TRUNCATION = 21,
 	LSTAT_FAIL = 22,
 	INVALID_ARGS = 40,
-	MALLOC_FAIL = 41
+	MALLOC_FAIL = 41,
+	INT_OVERFLOW = 23
 } err_type;
 
 typedef enum

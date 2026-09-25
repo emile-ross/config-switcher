@@ -32,14 +32,21 @@ void lookup_keyword(char *switching_keyword)
 				if (configuration_type != NULL)
 					free(configuration_type);
 
+
 				configuration_type = malloc(len + 1);
 				strncpy(configuration_type, buf, len);
 				configuration_type[len] = '\0';
 
 				printf("%s\n", configuration_type);
 				i += len;
+				if (len >= INT32MAX)
+				{
+					err(INT_OVERFLOW);
+				}
+				j += len;
 			}
 		}
+
 		if (buf[line_len] == EOF)
 		{
 			return;
