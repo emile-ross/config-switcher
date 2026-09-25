@@ -17,6 +17,21 @@ void lookup_keyword(char *switching_keyword)
 	{
 		if (fgets(buf, 512, fp) == NULL)
 			break;
+
+		size_t line_len = strlen(buf);
+		
+		for (int j = 0; line_len > j; j++)
+		{
+			if (isalpha(buf[j]))
+			{
+				size_t len = strcspn(buf ,". -,/>");
+
+				configuration_type = malloc(len + 1);
+				strncpy(configuration_type, buf, len);
+				configuration_type[len] = '\0';
+				printf("%s\n", configuration_type);
+				return;
+			}
 		}
 	}
 	free(buf);
