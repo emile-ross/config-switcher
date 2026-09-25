@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
 {
 	uint8_t i = 1;	/* ignore first argument (arg 0) */
 	char *switching_word = NULL;
+	size_t switching_keyword_len = 0;
 
 	if (!(argc > 1))
 		err(ARG_NONE);
@@ -21,16 +22,17 @@ int main(int argc, char *argv[])
 	{
 		if (scmp(argv[i], "--help"))
 		{
-			printf("config-switcher [switching keyword]\n");
+			printf();
+			printf(
+					BOLD"config-switcher [switching keyword]\n"RESET
+					"The program expects a switching keyword as input.\n"
+					"Specify their use in the config file located at :\n"
+					"~/.config/config-switcher/config.conf \n");
 			return 0;
-		}
-		else if (argv[i][0] == '-')
-		{
-			ignored_arg(argv[i]);
 		}
 		else
 		{
-			switching_word = bmalloc(argv[i]);
+			switching_word = bmalloc(&switching_keyword_len, argv[i]);
 			break;	/* only one switching_word can be taken as input */
 		}
 	}
