@@ -15,20 +15,21 @@ void lookup_keyword(char *switching_keyword)
 
 	char *configuration_type = NULL;
 
-	for (uint16_t i = 0; i < 100; i++)
+	for (uint16_t i = 0; !feof(fp); i++)
 	{
 		if (fgets(buf, 512, fp) == NULL)
 			break;
 
 		size_t line_len = strlen(buf);
 		
-		for (int j = 0; line_len > j; j++)
+		for (int32_t j = 0; (signed)line_len > j; j++)
 		{
 			if (buf[j] == '\t' || buf[j] == ' ')
 				continue;
+
 			if (isalpha(buf[j]))
 			{
-				size_t len = strcspn(buf, "<>.");
+				size_t len = strcspn(buf + j, "<>. ");
 				if (configuration_type != NULL)
 					free(configuration_type);
 
@@ -37,13 +38,28 @@ void lookup_keyword(char *switching_keyword)
 				strncpy(configuration_type, buf, len);
 				configuration_type[len] = '\0';
 
-				printf("%s\n", configuration_type);
-				i += len;
+				if (buf[j] == '.')
+				{
+					if (scmp(configuration_type, "path"))
+					{
+						j++;
+					}
+					else if (scmp(configuration_type, "config"))
+					{
+						fprintf(stderr,
+								"the config keyword is reserved for declaring new"
+								"setup configuration/rices\nThese are used in order "
+								"to group multiple configuration files together in\n"
+								"a single master configuration\nDeclare a new "
+								"configuration using: \"config [name]\"\n");
+					}
+				}
+
 				if (len >= INT32MAX)
 				{
 					err(INT_OVERFLOW);
 				}
-				j += len;
+				j += (int32_t)len;
 			}
 		}
 
