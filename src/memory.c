@@ -2,7 +2,7 @@
 
 #include <stdarg.h>
 
-char *bmalloc(const char *restrict fmt, ...)
+char *bmalloc(size_t *buffer_size, const char *restrict fmt, ...)
 {
 	/* args copy is used for getting the string length *
 	 * args is for creating the final string */
@@ -38,5 +38,12 @@ char *bmalloc(const char *restrict fmt, ...)
 		return NULL;
 	}
 	
+	/* write to thew buffer_size parameter pointer taken as input */
+	if (buffer_size != NULL)
+	{
+		/* set the buffer_size to the allocated memory size */
+		*(buffer_size) = str_len;
+	}
+
 	return str;
 }
