@@ -2,6 +2,7 @@ typedef enum
 {
 	INVALID_ERR = 0,
 	ARG_MISSING = 1,
+	NO_SUCH_FILE = 2,
 	ARG_NONE = 3,
 	BUF_TRUNCATION = 21,
 	LSTAT_FAIL = 22,

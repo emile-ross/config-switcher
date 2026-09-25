@@ -32,6 +32,9 @@ void err(err_type error_code)
 		report = True;
 		MSG("The string has been truncated (internal failure)\n");
 
+	case NO_SUCH_FILE:
+		MSG("No such file or directory\n");
+
 	default:
 		report = True;
 		MSG("Invalid error message");
