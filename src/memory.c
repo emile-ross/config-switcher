@@ -18,7 +18,7 @@ char *bmalloc(const char *restrict fmt, ...)
 	{
 		fprintf(stderr, "Invalid memory allocation value\n");
 		fprintf(stderr, "malloc() cannot allocate a zero sized memory buffer\n");
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 
 	char *str = malloc(str_len);
