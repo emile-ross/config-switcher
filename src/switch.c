@@ -18,12 +18,12 @@ int switch_config(const char *src, const char *dst)
 		{
 			if (verbose)
 			{
-				printf(ANSI_RED"File conflicts at \'%s\'\nIt conflicts with the new file path\n"STYLE_END, dst);
+				printf(ANSI_RED"File conflicts at \'%s\'\nIt conflicts with the new file path\n"RESET, dst);
 			}
 
 			/* archive the old config file to a new path */
 			fclose(fp);
-			char *cmd = bmalloc("mv %s archived-%s.old", dst, dst);
+			char *cmd = bmalloc(NULL, "mv %s archived-%s.old", dst, dst);
 			system(cmd);
 			free(cmd);
 		}
@@ -35,7 +35,7 @@ int switch_config(const char *src, const char *dst)
 	}
 
 	const char *cmd_template = "ln -sf %s %s";
-	char *cmd = bmalloc(cmd_template, src, dst);
+	char *cmd = bmalloc(NULL, cmd_template, src, dst);
 
 	/* execute linking command
 	 * links the configuration to the correct path */

@@ -46,8 +46,8 @@ void err(err_type error_code)
 	exit(1);
 }
 
-void ignored_arg(char *flag)
+void ignored_arg(const char *flag)
 {
-	warn(ANSI_RED BOLD"Ignored arg: %s\n"STYLE_END, flag);
+	warn(ANSI_RED BOLD"Ignored arg: %s\n"RESET, flag);
 	warn(ANSI_RED BOLD"You can view valid arguments using the --help flag\n"RESET);
 }

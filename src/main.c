@@ -12,7 +12,7 @@ const Bool testing = True;
 int main(int argc, char *argv[])
 {
 	uint8_t i = 1;	/* ignore first argument (arg 0) */
-	char *switching_word = NULL;
+	char *switching_keyword = NULL;
 	size_t switching_keyword_len = 0;
 
 	if (!(argc > 1))
@@ -22,7 +22,6 @@ int main(int argc, char *argv[])
 	{
 		if (scmp(argv[i], "--help"))
 		{
-			printf();
 			printf(
 					BOLD"config-switcher [switching keyword]\n"RESET
 					"The program expects a switching keyword as input.\n"
@@ -32,8 +31,8 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			switching_word = bmalloc(&switching_keyword_len, argv[i]);
-			break;	/* only one switching_word can be taken as input */
+			switching_keyword = bmalloc(&switching_keyword_len, argv[i]);
+			break;	/* only one switching_keyword can be taken as input */
 		}
 	}
 

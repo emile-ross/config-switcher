@@ -19,7 +19,7 @@
 
 /* errors.c */
 	void err(err_type error_code);
-	void ignored_arg(char *flag);
+	void ignored_arg(const char *flag);
 
 /* warn.c */
 	void warn(const char *restrict fmt, ...);
