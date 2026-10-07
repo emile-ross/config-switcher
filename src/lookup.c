@@ -35,7 +35,11 @@ void lookup_keyword(char *switching_keyword)
 
 
 				configuration_type = malloc(len + 1);
-				strncpy(configuration_type, buf, len);
+				int ret = snprintf(configuration_type, len, "%s", buf);
+				if (ret > len)
+				{
+					configuration_type = realloc(configuration_type, ret);
+				}
 				configuration_type[len] = '\0';
 
 				if (buf[j] == '.')

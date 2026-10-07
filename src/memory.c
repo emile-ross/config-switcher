@@ -47,3 +47,13 @@ char *bmalloc(size_t *buffer_size, const char *restrict fmt, ...)
 
 	return str;
 }
+
+void *smalloc(size_t size)
+{
+	void *ptr = malloc(size);
+	if (ptr == NULL) {
+		fprintf(stderr, "Failed to allocate memory chunk of size %zu\n", size);
+		exit(EXIT_FAILURE);
+	}
+	return ptr;
+}
