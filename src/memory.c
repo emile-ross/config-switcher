@@ -51,9 +51,27 @@ char *bmalloc(size_t *buffer_size, const char *restrict fmt, ...)
 void *smalloc(size_t size)
 {
 	void *ptr = malloc(size);
-	if (ptr == NULL) {
+	if (ptr == NULL)
+	{
 		fprintf(stderr, "Failed to allocate memory chunk of size %zu\n", size);
 		exit(EXIT_FAILURE);
 	}
 	return ptr;
+}
+
+void *srealloc(void *ptr, size_t size)
+{
+	if (ptr == NULL)
+	{
+		ptr = smalloc(size);
+		return ptr;
+	}
+
+	void *buf = realloc(ptr, size);
+	if (buf == NULL)
+	{
+		fprintf(stderr, "Failed to allocate memory chunk of size %zu\n", size);
+		exit(EXIT_FAILURE);
+	}
+	return buf;
 }

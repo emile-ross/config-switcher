@@ -36,9 +36,9 @@ void lookup_keyword(char *switching_keyword)
 
 				configuration_type = malloc(len + 1);
 				int ret = snprintf(configuration_type, len, "%s", buf);
-				if (ret > len)
+				if ((unsigned)ret > len)
 				{
-					configuration_type = realloc(configuration_type, ret);
+					configuration_type = realloc(configuration_type, (unsigned)ret);
 				}
 				configuration_type[len] = '\0';
 
